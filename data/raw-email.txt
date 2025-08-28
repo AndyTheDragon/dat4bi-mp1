@@ -1,0 +1,541 @@
+Delivered-To: redacted@gmail.com
+Received: by 2002:a05:6802:28a9:b0:5e0:75a1:9c15 with SMTP id gq41csp320321ocb;
+        Wed, 27 Aug 2025 09:21:13 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGAfnP8tGH7zcciPVYCC314wrGkqMaiRoYhsPaRkJOHTu+N878bWLYr0183EgtJTCntOCVh
+X-Received: by 2002:a17:903:187:b0:235:ec11:f0ee with SMTP id d9443c01a7336-2462eded8bbmr259771295ad.14.1756311673270;
+        Wed, 27 Aug 2025 09:21:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1756311673; cv=none;
+        d=google.com; s=arc-20240605;
+        b=U4hxptB8OaGc71Hg6Fm5oLwlID4xQ6pGtESJI6VdMp6Mfg2zqVPEcd756BFwu0Grx2
+         HukR1mif542i9065LqnjmpXe+lPiaLwmxBh99XceLcRxMzs858LLDbh2TNQv3TpFm8SF
+         phDjiFG8VbPc9Zl9UtRnzS5FeA42nSMj1ubjfej0QsPzIURhdK4fFbzGU7S6TLlbraNT
+         NHv0jLf3zcW28kQo90jmypyjbO+EF0zXbwF5tChW2aVgyGhXUPK56+Sk06JR4jgaVNXN
+         PjfR/HSrw/BpOeA5ixcRHXm5Ff8QmEfRDGNQfK8naWrivwot1tFBGbLyzvEyaw+g5YDv
+         LvlQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:mime-version:feedback-id:precedence
+         :list-unsubscribe:message-id:reply-to:sender:date:subject:to:from
+         :dkim-signature;
+        bh=DiR0tG5BejwmgVeYon8orvkrOcQxR7j2kQg6mQi5SuQ=;
+        fh=CFa4RGiO9e/pedW8jG0mIThI8LJgdWKfzvJSHETLxUY=;
+        b=TTtycZsRqDA0jzRq9kF8g4s7XJ7YMb4R4+7huktWZ3VeSsJO8JTTNuOCWIg7yAb2oB
+         kw+2mqDLheGhh4vOKU58YgiZLxnXyMBwxLIyOeY6HFrzbrUY5nUc1sWwilTWSZou2suE
+         WupFGXcLXd+wy7E2Uurjb91B7oIsGl7J1HPZoVP+bnMkGeiDdtlHjuoV7pWH6K8tp72l
+         gF2+OhFgsC3QXsNv2OmuCh2ZW3GVPdHN02GVhkJ8pR3ctChO/50Pk7rff9hkJIq04wpD
+         2PpQCoD9BSqmPztVyaFS9ctleKmGclI8lPSLpu1sKSwNH4SgwuEiZ2qgwAw3TTY8Yema
+         Fseg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@txm33.net header.s=mail header.b=AC8p84B4;
+       spf=pass (google.com: domain of bounce-3146-8321-p005ebp-f-f-f-f-f@txm33.net designates 3.1.173.213 as permitted sender) smtp.mailfrom=bounce-3146-8321-p005ebp-F-F-F-F-F@txm33.net;
+       dmarc=fail (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <bounce-3146-8321-p005ebp-F-F-F-F-F@txm33.net>
+Received: from mail213.cb267.sgpsv.com (mail213.cb267.sgpsv.com. [3.1.173.213])
+        by mx.google.com with ESMTPS id 98e67ed59e1d1-3276f55a793si1739179a91.33.2025.08.27.09.21.12
+        for <andre.jansam@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 27 Aug 2025 09:21:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-3146-8321-p005ebp-f-f-f-f-f@txm33.net designates 3.1.173.213 as permitted sender) client-ip=3.1.173.213;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@txm33.net header.s=mail header.b=AC8p84B4;
+       spf=pass (google.com: domain of bounce-3146-8321-p005ebp-f-f-f-f-f@txm33.net designates 3.1.173.213 as permitted sender) smtp.mailfrom=bounce-3146-8321-p005ebp-F-F-F-F-F@txm33.net;
+       dmarc=fail (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=mail; t=1756311672; d=txm33.net; h=from:to:subject:date:reply-to:message-id:mime-version:list-unsubscribe:sender:feedback-id; bh=i2FAVId3Gk/DdURHdtfIB6x9wWQ=;
+  b=AC8p84B4C/JxjEaiFYCo3t5OkIJ6v5dB3lfvo2CV7NMHjKaZau+ySakKN9TaZAbjvJPDCrD+hiXN wfRh/OKD+S7rUErhZxbxRbj5zrYaMjYU8krmyj3gaJlDFDdqFqxmS1w0NkkdW27KQ+hyddawW+Dx V6QoT6SyQwHxgCONib4=
+From: Thai Vietjet Air <tvj.mkt@gmail.com>
+To: <redacted@gmail.com>
+Subject: "Checklist เที่ยวไทเปแบบจัดเต็ม" แจ้งข่าวสารสิทธิพิเศษสำหรับสมาชิก Vietjet FUN Rewards เท่านั้น!
+Date: Wed, 27 Aug 2025 23:21:12
+  +0700
+Sender: tvj.mkt=gmail.com@txm33.net
+Reply-To: Thai Vietjet Air <tvj.mkt@gmail.com>
+Message-ID: <MKBoyJ036N8wOiEGre9nw5f7jzsYPSQ0EzqOP4UlGr2cxtgts2uJ7QToQk43@txm33.net>
+X-Mailer-Pool: C203
+X-Campaign: 3146-8321-p005ebp-F-F-F-F-F
+X-Complaints-To: fbl@txm33.net
+X-Report-Abuse: https://thaivietjet.mail.txm33.net/cb/f/3146/8321/p005ebp/F/F/F/F/F
+List-Unsubscribe: <https://thaivietjet.mail.txm33.net/gp/u/3146/8321/p005ebp/F/F/F/F/F>, <mailto:unsubscribe-3146-8321-p005ebp-F-F-F-F-F@txm33.net?subject=unsubscribe>
+X-Report-Abuse-To: fbl@txm33.net
+X-Mailer: Taximail 4.0
+X-MailType: campaign
+Precedence: bulk
+Feedback-ID: 3146txmp005ebp:3146.p005ebp:c8321:txm
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="PD02yrAciLLmBmMyPbl2yxlLgT9SOzWvMTfykqXAMYOOKKUAAKPUm5oYpEUe"
+Content-Transfer-Encoding: quoted-printable
+
+--PD02yrAciLLmBmMyPbl2yxlLgT9SOzWvMTfykqXAMYOOKKUAAKPUm5oYpEUe
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+
+
+
+Checklist =E0=B9=80=E0=B8=97=E0=B8=B5=E0=B9=88=E0=B8=A2=E0=B8=A7=E0=B9=84=
+=E0=B8=97=E0=B9=80=E0=B8=9B=E0=B9=81=E0=B8=9A=E0=B8=9A=E0=B8=88=E0=B8=B1=E0=
+=B8=94=E0=B9=80=E0=B8=95=E0=B9=87=E0=B8=A1=E0=B9=80=E0=B8=95=E0=B8=A3=E0=B8=
+=B5=E0=B8=A2=E0=B8=A1=E0=B8=95=E0=B8=B1=E0=B8=A7=E0=B8=9E=E0=B8=A3=E0=B9=89=
+=E0=B8=AD=E0=B8=A1=E0=B9=80=E0=B8=97=E0=B8=B5=E0=B9=88=E0=B8=A2=E0=B8=A7=E0=
+=B9=84=E0=B8=A1=E0=B9=88=E0=B8=A1=E0=B8=B5=E0=B8=AA=E0=B8=B0=E0=B8=94=E0=B8=
+=B8=E0=B8=94=F0=9F=93=B7=F0=9F=8D=9C=F0=9F=9B=8D=EF=B8=8F=F0=9F=95=B6=EF=B8=
+=8F=F0=9F=92=BA=F0=9F=A7=B3=F0=9F=8E=92=F0=9F=8F=A5=E2=9C=88=EF=B8=8F
+=F0=9F=98=8E=E2=9C=A8=E0=B8=9E=E0=B8=A3=E0=B9=89=E0=B8=AD=E0=B8=A1=E0=B8=AB=
+=E0=B8=A3=E0=B8=B7=E0=B8=AD=E0=B8=A2=E0=B8=B1=E0=B8=87=E0=B8=81=E0=B8=B1=E0=
+=B8=9A=E0=B8=9B=E0=B8=A3=E0=B8=B0=E0=B8=AA=E0=B8=9A=E0=B8=81=E0=B8=B2=E0=B8=
+=A3=E0=B8=93=E0=B9=8C=E0=B9=80=E0=B8=97=E0=B8=B5=E0=B9=88=E0=B8=A2=E0=B8=A7=
+=E0=B9=84=E0=B8=97=E0=B9=80=E0=B8=9B=E0=B9=81=E0=B8=9A=E0=B8=9A=E0=B8=84=E0=
+=B8=B9=E0=B8=A5=E0=B9=86 =E0=B9=80=E0=B8=A5=E0=B8=B7=E0=B8=AD=E0=B8=81 Add =
+on =E0=B8=AD=E0=B8=AD=E0=B8=81=E0=B9=81=E0=B8=9A=E0=B8=9A=E0=B8=81=E0=B8=B2=
+=E0=B8=A3=E0=B9=80=E0=B8=94=E0=B8=B4=E0=B8=99=E0=B8=97=E0=B8=B2=E0=B8=87=E0=
+=B9=83=E0=B8=AB=E0=B9=89=E0=B8=95=E0=B8=AD=E0=B8=9A=E0=B9=82=E0=B8=88=E0=B8=
+=97=E0=B8=A2=E0=B9=8C=E0=B8=97=E0=B8=B8=E0=B8=81=E0=B8=84=E0=B8=A7=E0=B8=B2=
+=E0=B8=A1=E0=B8=95=E0=B9=89=E0=B8=AD=E0=B8=87=E0=B8=81=E0=B8=B2=E0=B8=A3=E0=
+=B8=82=E0=B8=AD=E0=B8=87=E0=B8=84=E0=B8=B8=E0=B8=93 =E0=B9=80=E0=B8=9E=E0=
+=B8=B4=E0=B9=88=E0=B8=A1=E0=B8=84=E0=B8=A7=E0=B8=B2=E0=B8=A1=E0=B8=AA=E0=B8=
+=B0=E0=B8=94=E0=B8=A7=E0=B8=81=E0=B8=AA=E0=B8=9A=E0=B8=B2=E0=B8=A2=E0=B9=81=
+=E0=B8=A5=E0=B8=B0=E0=B8=84=E0=B8=A7=E0=B8=B2=E0=B8=A1=E0=B8=84=E0=B8=B8=E0=
+=B9=89=E0=B8=A1=E0=B8=84=E0=B9=88=E0=B8=B2=E0=B8=97=E0=B8=B5=E0=B9=88=E0=B8=
+=84=E0=B8=B8=E0=B8=93=E0=B9=84=E0=B8=A1=E0=B9=88=E0=B8=84=E0=B8=A7=E0=B8=A3=
+=E0=B8=9E=E0=B8=A5=E0=B8=B2=E0=B8=94=E2=9C=88=EF=B8=8F=F0=9F=92=95
+
+=F0=9F=93=8D=E0=B8=88=E0=B8=AD=E0=B8=87=E0=B9=80=E0=B8=A5=E0=B8=A2=E0=B8=97=
+=E0=B8=B5=E0=B9=88 : v (https://bit.ly/VZprebookmeal) ietjetair.com (//Viet=
+jetair.com)=20
+
+=E0=B9=80=E0=B8=87=E0=B8=B7=E0=B9=88=E0=B8=AD=E0=B8=99=E0=B9=84=E0=B8=82=E0=
+=B9=80=E0=B8=9B=E0=B9=87=E0=B8=99=E0=B9=84=E0=B8=9B=E0=B8=95=E0=B8=B2=E0=B8=
+=A1=E0=B8=9A=E0=B8=A3=E0=B8=B4=E0=B8=A9=E0=B8=B1=E0=B8=97=E0=B8=AF =E0=B8=
+=81=E0=B8=B3=E0=B8=AB=E0=B8=99=E0=B8=94
+
+
+    Facebook (https://www.facebook.com/VietJetThailand)      LINE (https://=
+page.line.me/qsh5336f)      YouTube (https://www.youtube.com/@vietjetthaila=
+nd110) =20
+
+This message was delivered to redacted@gmail.com (mailto:redacted@g=
+mail.com) .
+If you prefer not to receive these messages in the future, please click her=
+e to unsubscribe (https://thaivietjet.mail.txm33.net/g/u/3146/8321/p005ebp/=
+F/F/F/F/F)=20
+
+=C2=A9 2025 All Right Reserved =E2=80=A2 Terms (#)  and Privacy (#)=20
+999 Moo 1 Concourse A and G, Suvarnabhumi Airport, Samutprakarn, Samutpraka=
+rn 10280
+
+
+
+--PD02yrAciLLmBmMyPbl2yxlLgT9SOzWvMTfykqXAMYOOKKUAAKPUm5oYpEUe
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml" xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:sc=
+hemas-microsoft-com:office:office"><head><title>Email</title><meta http-equ=
+iv=3D"Content-Type" content=3D"text/html" charset=3D"utf-8"><meta name=3D"v=
+iewport" content=3D"width=3Ddevice-width, initial-scale=3D1.0 " /><meta htt=
+p-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" /><meta htt=
+p-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" /><meta name=3D"format-de=
+tection" content=3D"telephone=3Dno"/><style type=3D"text/css">.element_obje=
+ct.tiny_editor .data_txt table {table-layout: fixed;}*:before, *:after {box=
+-sizing: border-box;}*:before, *:after {box-sizing: border-box;}img {vertic=
+al-align: middle;}img {border: 0 none;}* {box-sizing: border-box;} .tm_tabl=
+e {border-collapse:separate;border-spacing: 0;} .tm_link{color: #428bca;tex=
+t-decoration:none;}.data_txt span[style~=3D"color:"] a,.fr-view span[style~=
+=3D"color:"] a {color:inherit !important;} .data_txt a span,.fr-view a span=
+ {color:inherit !important;} .fr-view a:hover,.data_txt a:hover {text-decor=
+ation: underline !important;} .tm_link {text-decoration: none;}.tm_link:hov=
+er,.tm_link:focus {text-decoration: underline;}.tm_link:focus {outline: thi=
+n dotted;outline: 5px auto -webkit-focus-ring-color;outline-offset: -2px;}.=
+tm-col-rps { overflow:hidden; font-weight:normal; }table { border-collapse:=
+separate; mso-table-lspace:0pt; mso-table-rspace:0pt; }body,html { width:10=
+0%;min-width:100%;padding:0;margin:0; } * { -ms-text-size-adjust: 100%; -we=
+bkit-text-size-adjust: 100%; } div[style*=3D"margin: 16px 0"] { margin:0 !i=
+mportant; }table,td { mso-table-lspace: 0pt !important; mso-table-rspace: 0=
+pt !important; }img {-ms-interpolation-mode:bicubic;}*[x-apple-data-detecto=
+rs],.x-gmail-data-detectors,.x-gmail-data-detectors *,.aBn { border-bottom:=
+ 0 !important;cursor: default !important; color: inherit !important;text-de=
+coration: none !important;font-size: inherit !important;font-family: inheri=
+t !important;font-weight: inherit !important;line-height: inherit !importan=
+t;}.a6S {display: none !important;opacity: 0.01 !important;}img.g-img + div=
+ {display:none !important;}.btn-link {text-decoration: none !important;}@me=
+dia (max-width: 480px) { .tm-col-rps { display: block !important; width: 10=
+0% !important;max-width: 100% !important;direction: ltr !important; } }.dat=
+a_template img {position: relative;max-width: 100%;}.data_template img.fr-d=
+ib {margin: 0 auto;display: block;float: none;vertical-align: top;}.data_te=
+mplate img.fr-dib.fr-fil {margin-left: 0;}.data_template img.fr-dib.fr-fir =
+{margin-right: 0;}.data_template img.fr-dii {display: inline-block;float: n=
+one;vertical-align: center;}.data_template img.fr-dii.fr-fil {float: left;}=
+.data_template img.fr-dii.fr-fir {float: right;}.wrap_txt:not(.footer_unsub=
+_detail) .data_txt a,.wrap_txt:not(.footer_unsub_detail) .fr-view a {color:=
+rgb(27, 157, 222);}.wrap_txt.footer_unsub_detail .data_txt a,.wrap_txt.foot=
+er_unsub_detail .fr-view a {color:rgb(23, 135, 191);}#tm_footer_row .elemen=
+t_object:not(.tm_custom) .wrap_social a {color:rgb(23, 135, 191);}</style><=
+style type=3D"text/css">.data_template.data_txt:not(.footer_unsub_detail) *=
+:not(b,strong,h1,h2,h3,h4,h5,h6) { font-size:inherit; }</style> <!--[if mso=
+]><style type=3D"text/css">.fallback-font { } </style><![endif]--> </head><=
+body leftmargin=3D"0" topmargin=3D"0" offset=3D"0"><table style=3D'mso-hide=
+:all; table-layout:fixed;top:0; position:absolute;left:-200px;padding:0px;m=
+argin-left:-200px;display:none;height:0px;width:200px;max-height:0px;overfl=
+ow:hidden;line-height:0;float:left;' class=3D'tmp_msg'><tr style=3D'mso-hid=
+e:all; table-layout:fixed;top:0; position:absolute;left:-200px;padding:0px;=
+margin-left:-200px;display:none;height:0px;width:200px;max-height:0px;overf=
+low:hidden;line-height:0;float:left;' ><td style=3D'mso-hide:all; table-lay=
+out:fixed;top:0; position:absolute;left:-200px;padding:0px;margin-left:-200=
+px;display:none;height:0px;width:200px;max-height:0px;overflow:hidden;line-=
+height:0;float:left;' ><font id=3D'wrapHiddenPlainText' size=3D'0' color=3D=
+'#ffffff' style=3D'width:0;height:0;display:none;overflow:hidden;float:left=
+; display:none; line-height:0px;'> Checklist =E0=B9=80=E0=B8=97=E0=B8=B5=E0=
+=B9=88=E0=B8=A2=E0=B8=A7=E0=B9=84=E0=B8=97=E0=B9=80=E0=B8=9B=E0=B9=81=E0=B8=
+=9A=E0=B8=9A=E0=B8=88=E0=B8=B1=E0=B8=94=E0=B9=80=E0=B8=95=E0=B9=87=E0=B8=A1=
+=E0=B9=80=E0=B8=95=E0=B8=A3=E0=B8=B5=E0=B8=A2=E0=B8=A1=E0=B8=95=E0=B8=B1=E0=
+=B8=A7=E0=B8=9E=E0=B8=A3=E0=B9=89=E0=B8=AD=E0=B8=A1=E0=B9=80=E0=B8=97=E0=B8=
+=B5=E0=B9=88=E0=B8=A2=E0=B8=A7=E0=B9=84=E0=B8=A1=E0=B9=88=E0=B8=A1=E0=B8=B5=
+=E0=B8=AA=E0=B8=B0=E0=B8=94=E0=B8=B8=E0=B8=94=F0=9F=93=B7=F0=9F=8D=9C=F0=9F=
+=9B=8D=EF=B8=8F=F0=9F=95=B6=EF=B8=8F=F0=9F=92=BA=F0=9F=A7=B3=F0=9F=8E=92=F0=
+=9F=8F=A5=E2=9C=88=EF=B8=8F =F0=9F=98=8E=E2=9C=A8=E0=B8=9E=E0=B8=A3=E0=B9=
+=89=E0=B8=AD=E0=B8=A1=E0=B8=AB=E0=B8=A3=E0=B8=B7=E0=B8=AD=E0=B8=A2=E0=B8=B1=
+=E0=B8=87=E0=B8=81=E0=B8=B1=E0=B8=9A=E0=B8=9B=E0=B8=A3=E0=B8=B0=E0=B8=AA=E0=
+=B8=9A=E0=B8=81=E0=B8=B2=E0=B8=A3=E0=B8=93=E0=B9=8C=E0=B9=80=E0=B8=97=E0=B8=
+=B5=E0=B9=88=E0=B8=A2=E0=B8=A7=E0=B9=84=E0=B8=97=E0=B9=80=E0=B8=9B=E0=B9=81=
+=E0=B8=9A=E0=B8=9A=E0=B8=84=E0=B8=B9=E0=B8=A5=E0=B9=86 =E0=B9=80=E0=B8=A5=
+=E0=B8=B7=E0=B8=AD=E0=B8=81 Add on =E0=B8=AD=E0=B8=AD=E0=B8=81=E0=B9=81=E0=
+=B8=9A=E0=B8=9A=E0=B8=81=E0=B8=B2=E0=B8=A3=E0=B9=80=E0=B8=94=E0=B8=B4=E0=B8=
+=99=E0=B8=97=E0=B8=B2=E0=B8=87=E0=B9=83=E0=B8=AB=E0=B9=89=E0=B8=95=E0=B8=AD=
+=E0=B8=9A=E0=B9=82=E0=B8=88=E0=B8=97=E0=B8=A2=E0=B9=8C=E0=B8=97=E0=B8=B8=E0=
+=B8=81=E0=B8=84=E0=B8=A7=E0=B8=B2=E0=B8=A1=E0=B8=95=E0=B9=89=E0=B8=AD=E0=B8=
+=87=E0=B8=81=E0=B8=B2=E0=B8=A3=E0=B8=82=E0=B8=AD=E0=B8=87=E0=B8=84=E0=B8=B8=
+=E0=B8=93 =E0=B9=80=E0=B8=9E=E0=B8=B4=E0=B9=88=E0=B8=A1=E0=B8=84=E0=B8=A7=
+=E0=B8=B2=E0=B8=A1=E0=B8=AA...</font></td></tr></table><table class=3D"tm_t=
+able bg_template" id=3D"table_header" style=3D"max-width: 600px; background=
+-color: rgb(255, 29, 37);" align=3D"center" width=3D"100%" cellspacing=3D"0=
+" cellpadding=3D"0" border=3D"0"><tbody><tr><td valign=3D"top"><table style=
+=3D"min-width: 100%;" class=3D"tm_table tm_rs_mw" width=3D"100%" cellspacin=
+g=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center"><tbody><tr><td styl=
+e=3D"padding: 20px;-moz-box-sizing:border-box;-webkit-box-sizing:border-box=
+;box-sizing:border-box;"><div id=3D"header_data"><div class=3D"header_detai=
+l" style=3D"font-size: 12px; line-height: 1.4; color: rgb(255, 255, 255); t=
+ext-align: center; font-family: Arial, sans-serif;">Email not displaying co=
+rrectly? <a class=3D"tm_link" href=3D"https://thaivietjet.mail.txm33.net/cb=
+/b/3146/8321/p005ebp/F/F/F/F/F" target=3D"_blank" style=3D"color: rgb(255, =
+240, 28);">View it in your browser</a>.</div></div></td></tr></tbody></tabl=
+e></td></tr></tbody></table><table id=3D"table_page_template" class=3D"bg_t=
+emplate tm_table ff_arial lh_1.5" style=3D"background-color: rgb(238, 49, 3=
+6);" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" bgcolo=
+r=3D"#ee3124"><tbody><tr><td ref=3D"PAGE" id=3D"page_template" valign=3D"to=
+p" align=3D"center" style=3D"padding-top: 0px; padding-bottom: 0px;-moz-box=
+-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;posi=
+tion:relative;" class=3D"tm_response"><!--[if mso]><table style=3D"table-la=
+yout:fixed;width:600px;" align=3D"center" id=3D"tm_wrap_mso" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" width=3D"600"><tr><td width=3D"600"><![e=
+ndif]--><table class=3D"obj_contain tm_table" width=3D"100%" style=3D"width=
+: 100%; max-width: 600px;" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"=
+><tbody><tr><td class=3D"obj_contain_row body" valign=3D"top" align=3D"cent=
+er" style=3D"border-style: none; border-width: 1px; border-color: rgb(237, =
+237, 237);"><div class=3D"tm_row" style=3D"position:relative;"><table align=
+=3D"center" width=3D"100%" style=3D"width:100%;" class=3D"" cellspacing=3D"=
+0" cellpadding=3D"0" border=3D"0"><tbody><tr><td align=3D"center"><table al=
+ign=3D"center" width=3D"100%" style=3D"max-width:600px;" class=3D"tm_table =
+tm_rs" ref=3D"BODY" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody=
+><tr><td align=3D"center"><table class=3D"tm_table tm_rs" style=3D"position=
+: relative; border-spacing: 0px !important; border-collapse: collapse !impo=
+rtant; margin: 0px auto !important; max-width: 600px;" align=3D"center" wid=
+th=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr cla=
+ss=3D"wrap_col_rps"><th class=3D"column_width col-rps tm-col-rps" id=3D"ctb=
+_0_0" style=3D"width:100%;" width=3D"100%" valign=3D"top" align=3D"center">=
+<div class=3D""><div class=3D""><div class=3D""><table class=3D"tm_table" w=
+idth=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr><=
+td id=3D"elb_7" width=3D"100%" valign=3D"top" align=3D"center" style=3D"pad=
+ding:0px 0px 0px 0px ;"><table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" style=3D"background-color:#ee3124;" class=3D"type_18"><=
+tbody><tr><td><table class=3D"tm_table tm_logo" width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" style=3D"border-spacing: 0;"><tbody><=
+tr><td ref=3D"Logo" class=3D"element_object tm_custom" align=3D"left" style=
+=3D" padding:10px 10px 10px 10px ;"><table class=3D"wrap_image tm_logo vali=
+d" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><=
+tr><td class=3D"tm_rm_sp" align=3D"center"><div class=3D"tm_wrap_image_and_=
+tool" style=3D"display: block; position: relative;"><img alt=3D"Logo" class=
+=3D"" style=3D"width: 115px; max-width: 115px; display: block;" src=3D"http=
+s://thaivietjet.mail.txm33.net/asset/0OK/c/00007o.png" data-src=3D"https://=
+thaivietjet.mail.txm33.net/asset/0OK/c/00007o.png" width=3D"115"></div></td=
+></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><=
+/td></tr></tbody></table></div></div></div></th></tr></tbody></table></td><=
+/tr></tbody></table></td></tr></tbody></table></div><div class=3D"tm_row" s=
+tyle=3D"position:relative;"><table align=3D"center" width=3D"100%" style=3D=
+"width:100%;" class=3D"" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><=
+tbody><tr><td align=3D"center"><table align=3D"center" width=3D"100%" style=
+=3D"max-width:600px;" class=3D"tm_table tm_rs" ref=3D"BODY" cellspacing=3D"=
+0" cellpadding=3D"0" border=3D"0"><tbody><tr><td align=3D"center"><table cl=
+ass=3D"tm_table tm_rs" style=3D"position: relative; border-spacing: 0px !im=
+portant; border-collapse: collapse !important; margin: 0px auto !important;=
+ max-width: 600px;" align=3D"center" width=3D"100%" cellspacing=3D"0" cellp=
+adding=3D"0" border=3D"0"><tbody><tr class=3D"wrap_col_rps"><th class=3D"co=
+lumn_width col-rps tm-col-rps" id=3D"ctb_1_0" style=3D"width:100%;" width=
+=3D"100%" valign=3D"top" align=3D"center"><div class=3D""><div class=3D""><=
+div class=3D""><table class=3D"tm_table" width=3D"100%" cellspacing=3D"0" c=
+ellpadding=3D"0" border=3D"0"><tbody><tr><td id=3D"elb_8" width=3D"100%" va=
+lign=3D"top" align=3D"center" style=3D"padding:0px 0px 0px 0px ;"><table wi=
+dth=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" class=3D"type=
+_4"><tbody><tr><td><table class=3D"tm_table tm_image" width=3D"100%" cellsp=
+acing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"border-spacing: 0;"><tb=
+ody><tr><td ref=3D"Image" class=3D"element_object" align=3D"left" style=3D"=
+ padding:0px 0px 0px 0px ;"><table class=3D"wrap_image valid" width=3D"100%=
+" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr><td class=3D"=
+tm_rm_sp" align=3D"center"><div class=3D"tm_wrap_image_and_tool" style=3D"d=
+isplay: block; position: relative;"><img alt=3D"" class=3D"" style=3D"width=
+: 100%; opacity: 1; display: block;" src=3D"https://thaivietjet.mail.txm33.=
+net/asset/0OK/c/optim_00008s.png?i=3D35456.35119298872" data-src=3D"https:/=
+/thaivietjet.mail.txm33.net/asset/0OK/c/00008s.png?i=3D9920.037544196432" d=
+ata-optim-src=3D"https://thaivietjet.mail.txm33.net/asset/0OK/c/optim_00008=
+s.png?i=3D35456.35119298872" data-optim-filename=3D"optim_00008s.png" width=
+=3D"600"></div></td></tr></tbody></table></td></tr></tbody></table></td></t=
+r></tbody></table></td></tr></tbody></table></div></div></div></th></tr></t=
+body></table></td></tr></tbody></table></td></tr></tbody></table></div><div=
+ class=3D"tm_row" style=3D"position:relative;"><table align=3D"center" widt=
+h=3D"100%" style=3D"width:100%;" class=3D"" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0"><tbody><tr><td align=3D"center"><table align=3D"center"=
+ width=3D"100%" style=3D"max-width:600px;" class=3D"tm_table tm_rs" ref=3D"=
+BODY" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr><td align=
+=3D"center"><table class=3D"tm_table tm_rs" style=3D"position: relative; bo=
+rder-spacing: 0px !important; border-collapse: collapse !important; margin:=
+ 0px auto !important; max-width: 600px;" align=3D"center" width=3D"100%" ce=
+llspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr class=3D"wrap_col=
+_rps"><th class=3D"column_width col-rps tm-col-rps" id=3D"ctb_2_0" style=3D=
+"width:100%;" width=3D"100%" valign=3D"top" align=3D"center"><div class=3D"=
+"><div class=3D""><div class=3D""><table class=3D"tm_table" width=3D"100%" =
+cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr><td id=3D"elb_9=
+" width=3D"100%" valign=3D"top" align=3D"center" style=3D"padding:0px 0px 0=
+px 0px ;"><table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" style=3D"background-color:#ba2025;" class=3D"type_3"><tbody><tr><td>=
+<table class=3D"tm_table tm_divider" width=3D"100%" cellspacing=3D"0" cellp=
+adding=3D"0" border=3D"0" style=3D"border-spacing: 0;"><tbody><tr><td ref=
+=3D"Divider" class=3D"element_object tm_custom" align=3D"center" style=3D" =
+padding:10px 20px 10px 20px ;"><table style=3D"width:95%;" cellspacing=3D"0=
+" cellpadding=3D"0" border=3D"0"><tbody><tr><td class=3D"" height=3D"1" sty=
+le=3D"border-top:6px solid #ffdd00;border-left:0;border-right:0;border-bott=
+om:0; font-size: 1px; line-height: 1px;">&nbsp;</td></tr></tbody></table></=
+td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table=
+></div></div></div></th></tr></tbody></table></td></tr></tbody></table></td=
+></tr></tbody></table></div><div class=3D"tm_row" style=3D"position:relativ=
+e;"><table align=3D"center" width=3D"100%" style=3D"background-color:#fffff=
+f;width:100%;" class=3D"" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">=
+<tbody><tr><td align=3D"center"><table align=3D"center" width=3D"100%" styl=
+e=3D"max-width:600px;" class=3D"tm_table tm_rs" ref=3D"BODY" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0"><tbody><tr><td align=3D"center"><table c=
+lass=3D"tm_table tm_rs" style=3D"position: relative; border-spacing: 0px !i=
+mportant; border-collapse: collapse !important; margin: 0px auto !important=
+; max-width: 600px;" align=3D"center" width=3D"100%" cellspacing=3D"0" cell=
+padding=3D"0" border=3D"0"><tbody><tr class=3D"wrap_col_rps"><th class=3D"c=
+olumn_width col-rps tm-col-rps" id=3D"ctb_3_0" style=3D"width:100%;" width=
+=3D"100%" valign=3D"top" align=3D"center"><div class=3D""><div class=3D""><=
+div class=3D"" style=3D"cursor: auto;"><table class=3D"tm_table" width=3D"1=
+00%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr><td id=3D"=
+elb_10" width=3D"100%" valign=3D"top" align=3D"center" style=3D"padding:0px=
+ 60px 0px 60px ;"><table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0"=
+ border=3D"0" class=3D"type_1"><tbody><tr><td><table class=3D"tm_table tm_t=
+ext" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=
+=3D"border-spacing: 0;"><tbody><tr><td ref=3D"Text" class=3D"element_object=
+ tm_custom" align=3D"left" style=3D" padding:0px 0px 0px 0px ;"><table clas=
+s=3D"wrap_txt" style=3D"font-weight: normal; font-family: Arial, sans-serif=
+; font-size: 15px; color: rgb(255, 255, 255); line-height: 1.4;" width=3D"1=
+00%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr><td><div c=
+lass=3D"fr-view" style=3D"display: block;"><span style=3D"color: rgb(0, 0, =
+0); line-height: 0.9;"><br></span><div style=3D"text-align: center;"><br></=
+div><div style=3D"text-align: center;"><strong style=3D"background-color: i=
+nitial; color: rgb(238, 49, 36); font-size: 24px;">Checklist =E0=B9=80=E0=
+=B8=97=E0=B8=B5=E0=B9=88=E0=B8=A2=E0=B8=A7=E0=B9=84=E0=B8=97=E0=B9=80=E0=B8=
+=9B=E0=B9=81=E0=B8=9A=E0=B8=9A=E0=B8=88=E0=B8=B1=E0=B8=94=E0=B9=80=E0=B8=95=
+=E0=B9=87=E0=B8=A1</strong></div><div style=3D"text-align: center;"><strong=
+ style=3D"background-color: initial; color: rgb(238, 49, 36); font-size: 24=
+px;">=E0=B9=80=E0=B8=95=E0=B8=A3=E0=B8=B5=E0=B8=A2=E0=B8=A1=E0=B8=95=E0=B8=
+=B1=E0=B8=A7=E0=B8=9E=E0=B8=A3=E0=B9=89=E0=B8=AD=E0=B8=A1=E0=B9=80=E0=B8=97=
+=E0=B8=B5=E0=B9=88=E0=B8=A2=E0=B8=A7=E0=B9=84=E0=B8=A1=E0=B9=88=E0=B8=A1=E0=
+=B8=B5=E0=B8=AA=E0=B8=B0=E0=B8=94=E0=B8=B8=E0=B8=94</strong></div><div styl=
+e=3D"text-align: center;"><strong style=3D"background-color: initial; color=
+: rgb(238, 49, 36); font-size: 24px;">=F0=9F=93=B7=F0=9F=8D=9C=F0=9F=9B=8D=
+=EF=B8=8F=F0=9F=95=B6=EF=B8=8F=F0=9F=92=BA=F0=9F=A7=B3=F0=9F=8E=92=F0=9F=8F=
+=A5=E2=9C=88=EF=B8=8F</strong></div><div style=3D"text-align: center;"><spa=
+n style=3D"background-color: initial; color: rgb(0, 0, 0); font-size: 20px;=
+"><br></span></div><div style=3D"text-align: center;"><span style=3D"backgr=
+ound-color: initial; color: rgb(0, 0, 0); font-size: 20px;">=F0=9F=98=8E=E2=
+=9C=A8=E0=B8=9E=E0=B8=A3=E0=B9=89=E0=B8=AD=E0=B8=A1=E0=B8=AB=E0=B8=A3=E0=B8=
+=B7=E0=B8=AD=E0=B8=A2=E0=B8=B1=E0=B8=87=E0=B8=81=E0=B8=B1=E0=B8=9A=E0=B8=9B=
+=E0=B8=A3=E0=B8=B0=E0=B8=AA=E0=B8=9A=E0=B8=81=E0=B8=B2=E0=B8=A3=E0=B8=93=E0=
+=B9=8C=E0=B9=80=E0=B8=97=E0=B8=B5=E0=B9=88=E0=B8=A2=E0=B8=A7=E0=B9=84=E0=B8=
+=97=E0=B9=80=E0=B8=9B=E0=B9=81=E0=B8=9A=E0=B8=9A=E0=B8=84=E0=B8=B9=E0=B8=A5=
+=E0=B9=86 =E0=B9=80=E0=B8=A5=E0=B8=B7=E0=B8=AD=E0=B8=81 Add on =E0=B8=AD=E0=
+=B8=AD=E0=B8=81=E0=B9=81=E0=B8=9A=E0=B8=9A=E0=B8=81=E0=B8=B2=E0=B8=A3=E0=B9=
+=80=E0=B8=94=E0=B8=B4=E0=B8=99=E0=B8=97=E0=B8=B2=E0=B8=87=E0=B9=83=E0=B8=AB=
+=E0=B9=89=E0=B8=95=E0=B8=AD=E0=B8=9A=E0=B9=82=E0=B8=88=E0=B8=97=E0=B8=A2=E0=
+=B9=8C</span></div><div style=3D"text-align: center;"><span style=3D"backgr=
+ound-color: initial; color: rgb(0, 0, 0); font-size: 20px;">=E0=B8=97=E0=B8=
+=B8=E0=B8=81=E0=B8=84=E0=B8=A7=E0=B8=B2=E0=B8=A1=E0=B8=95=E0=B9=89=E0=B8=AD=
+=E0=B8=87=E0=B8=81=E0=B8=B2=E0=B8=A3=E0=B8=82=E0=B8=AD=E0=B8=87=E0=B8=84=E0=
+=B8=B8=E0=B8=93 =E0=B9=80=E0=B8=9E=E0=B8=B4=E0=B9=88=E0=B8=A1=E0=B8=84=E0=
+=B8=A7=E0=B8=B2=E0=B8=A1=E0=B8=AA=E0=B8=B0=E0=B8=94=E0=B8=A7=E0=B8=81=E0=B8=
+=AA=E0=B8=9A=E0=B8=B2=E0=B8=A2</span></div><div style=3D"text-align: center=
+;"><span style=3D"background-color: initial; color: rgb(0, 0, 0); font-size=
+: 20px;">=E0=B9=81=E0=B8=A5=E0=B8=B0=E0=B8=84=E0=B8=A7=E0=B8=B2=E0=B8=A1=E0=
+=B8=84=E0=B8=B8=E0=B9=89=E0=B8=A1=E0=B8=84=E0=B9=88=E0=B8=B2=E0=B8=97=E0=B8=
+=B5=E0=B9=88=E0=B8=84=E0=B8=B8=E0=B8=93=E0=B9=84=E0=B8=A1=E0=B9=88=E0=B8=84=
+=E0=B8=A7=E0=B8=A3=E0=B8=9E=E0=B8=A5=E0=B8=B2=E0=B8=94=E2=9C=88=EF=B8=8F=F0=
+=9F=92=95</span></div><div style=3D"text-align: center;"><span style=3D"bac=
+kground-color: initial; color: rgb(0, 0, 0); font-size: 20px;"><br></span><=
+/div><div style=3D"text-align: center;"><br></div><div style=3D"text-align:=
+ center;"><span style=3D"background-color: initial; color: rgb(255, 221, 0)=
+; font-size: 22px;"><strong>=F0=9F=93=8D=E0=B8=88=E0=B8=AD=E0=B8=87=E0=B9=
+=80=E0=B8=A5=E0=B8=A2=E0=B8=97=E0=B8=B5=E0=B9=88 :&nbsp;</strong></span><sp=
+an style=3D"background-color: initial; color: rgb(90, 99, 230); font-size: =
+20px;" class=3D"tm_custom"><a href=3D"https://thaivietjet.mail.txm33.net/cb=
+/c/3146/8321/p005ebp/d312777/F/F/F/F">v</a><a href=3D"https://thaivietjet.m=
+ail.txm33.net/cb/c/3146/8321/p005ebp/4ec8147/F/F/F/F">ietjetair.com</a></sp=
+an></div><div style=3D"text-align: center;"><em><span style=3D"color: rgb(0=
+, 0, 0);"><br></span></em></div><div style=3D"text-align: center;"><em><spa=
+n style=3D"color: rgb(0, 0, 0);"><br></span></em></div><div style=3D"text-a=
+lign: center;"><em><span style=3D"color: rgb(0, 0, 0);">=E0=B9=80=E0=B8=87=
+=E0=B8=B7=E0=B9=88=E0=B8=AD=E0=B8=99=E0=B9=84=E0=B8=82=E0=B9=80=E0=B8=9B=E0=
+=B9=87=E0=B8=99=E0=B9=84=E0=B8=9B=E0=B8=95=E0=B8=B2=E0=B8=A1=E0=B8=9A=E0=B8=
+=A3=E0=B8=B4=E0=B8=A9=E0=B8=B1=E0=B8=97=E0=B8=AF =E0=B8=81=E0=B8=B3=E0=B8=
+=AB=E0=B8=99=E0=B8=94</span></em></div><div style=3D"text-align: center;"><=
+br></div></div></td></tr></tbody></table></td></tr></tbody></table></td></t=
+r></tbody></table></td></tr></tbody></table></div></div></div></th></tr></t=
+body></table></td></tr></tbody></table></td></tr></tbody></table></div><div=
+ class=3D"tm_row" style=3D"position:relative;"><table align=3D"center" widt=
+h=3D"100%" style=3D"width:100%;" class=3D"" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0"><tbody><tr><td align=3D"center"><table align=3D"center"=
+ width=3D"100%" style=3D"max-width:600px;" class=3D"tm_table tm_rs" ref=3D"=
+BODY" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr><td align=
+=3D"center"><table class=3D"tm_table tm_rs" style=3D"position: relative; bo=
+rder-spacing: 0px !important; border-collapse: collapse !important; margin:=
+ 0px auto !important; max-width: 600px;" align=3D"center" width=3D"100%" ce=
+llspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr class=3D"wrap_col=
+_rps"><th class=3D"column_width col-rps tm-col-rps" id=3D"ctb_4_0" style=3D=
+"width:100%;" width=3D"100%" valign=3D"top" align=3D"center"><div class=3D"=
+"><div class=3D""><div class=3D""><table class=3D"tm_table" width=3D"100%" =
+cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr><td id=3D"elb_1=
+1" width=3D"100%" valign=3D"top" align=3D"center" style=3D"padding:0px 0px =
+0px 0px ;"><table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" style=3D"background-color:#ba2025;" class=3D"type_3"><tbody><tr><td>=
+<table class=3D"tm_table tm_divider" width=3D"100%" cellspacing=3D"0" cellp=
+adding=3D"0" border=3D"0" style=3D"border-spacing: 0;"><tbody><tr><td ref=
+=3D"Divider" class=3D"element_object tm_custom" align=3D"center" style=3D" =
+padding:10px 20px 10px 20px ;"><table style=3D"width:95%;" cellspacing=3D"0=
+" cellpadding=3D"0" border=3D"0"><tbody><tr><td class=3D"" height=3D"1" sty=
+le=3D"border-top:6px solid #ffdd00;border-left:0;border-right:0;border-bott=
+om:0; font-size: 1px; line-height: 1px;">&nbsp;</td></tr></tbody></table></=
+td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table=
+></div></div></div></th></tr></tbody></table></td></tr></tbody></table></td=
+></tr></tbody></table></div><div class=3D"tm_row" style=3D"position:relativ=
+e;"><table align=3D"center" width=3D"100%" style=3D"width:100%;" class=3D""=
+ cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr><td align=3D"c=
+enter"><table align=3D"center" width=3D"100%" style=3D"max-width:600px;" cl=
+ass=3D"tm_table tm_rs" ref=3D"BODY" cellspacing=3D"0" cellpadding=3D"0" bor=
+der=3D"0"><tbody><tr><td align=3D"center"><table class=3D"tm_table tm_rs" s=
+tyle=3D"position: relative; border-spacing: 0px !important; border-collapse=
+: collapse !important; margin: 0px auto !important; max-width: 600px;" alig=
+n=3D"center" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0=
+"><tbody><tr class=3D"wrap_col_rps"><th class=3D"column_width col-rps tm-co=
+l-rps" id=3D"ctb_5_0" style=3D"width:100%;" width=3D"100%" valign=3D"top" a=
+lign=3D"center"><div class=3D""><div class=3D""><div class=3D""><table clas=
+s=3D"tm_table" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0"><tbody><tr><td id=3D"elb_12" width=3D"100%" valign=3D"top" align=3D"cen=
+ter" style=3D"padding:0px 0px 0px 0px ;"><table width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" class=3D"type_16"><tbody><tr><td><tab=
+le class=3D"tm_table tm_social follow" width=3D"100%" cellspacing=3D"0" cel=
+lpadding=3D"0" border=3D"0" style=3D"border-spacing: 0;"><tbody><tr><td ref=
+=3D"Social Follow" class=3D"element_object" align=3D"left" style=3D" paddin=
+g:10px 20px 10px 20px ;"><table class=3D"wrap_social wrap_txt" data-version=
+=3D"new" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" st=
+yle=3D"font-family: Arial, sans-serif; font-size: 15px; color: rgb(255, 255=
+, 255);"><tbody><tr class=3D"tr3"><td><table class=3D"" width=3D"100%" cell=
+spacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr class=3D"tr4"><td c=
+lass=3D"align" align=3D"center"><!--[if mso]><table border=3D"0" cellspacin=
+g=3D"0" cellpadding=3D"0"><tr class=3D"tr5"><![endif]--><table class=3D"" c=
+ellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr class=3D"tr6"><t=
+d align=3D"center"><!--[if mso]><td align=3D"center" valign=3D"top"><![endi=
+f]--><table class=3D"tm_s_facebook" style=3D"display:inline-block;" align=
+=3D"left" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr class=
+=3D"tr7"> <td align=3D"center"><table width=3D"100%" style=3D";"> <tbody><t=
+r class=3D"tr8"><td align=3D"center" width=3D"33" style=3D"vertical-align:m=
+iddle;text-align:center;"><a style=3D"text-decoration: none;" href=3D"https=
+://thaivietjet.mail.txm33.net/cb/c/3146/8321/p005ebp/dfbe190/F/F/F/F" targe=
+t=3D"_blank"><img alt=3D"icon" class=3D"social_icon facebook" width=3D"28" =
+height=3D"28" style=3D"display:inline-block;width:28px; vertical-align:midd=
+le;" src=3D"https://thaivietjet.mail.txm33.net/asset/core/s-color-facebook-=
+96.png"></a></td></tr></tbody></table></td> </tr></tbody></table><!--[if ms=
+o]></td><![endif]--><!--[if mso]><td align=3D"center" valign=3D"top"><![end=
+if]--><table class=3D"tm_s_lineapp" style=3D"display:inline-block;" align=
+=3D"left" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr class=
+=3D"tr7"> <td align=3D"center"><table width=3D"100%" style=3D";"> <tbody><t=
+r class=3D"tr8"><td align=3D"center" width=3D"33" style=3D"vertical-align:m=
+iddle;text-align:center;"><a style=3D"text-decoration: none;" href=3D"https=
+://thaivietjet.mail.txm33.net/cb/c/3146/8321/p005ebp/380e9bc/F/F/F/F" targe=
+t=3D"_blank"><img alt=3D"icon" class=3D"social_icon lineapp" width=3D"28" h=
+eight=3D"28" style=3D"display:inline-block;width:28px; vertical-align:middl=
+e;" src=3D"https://thaivietjet.mail.txm33.net/asset/core/s-color-lineapp-96=
+.png"></a></td></tr></tbody></table></td> </tr></tbody></table><!--[if mso]=
+></td><![endif]--><!--[if mso]><td align=3D"center" valign=3D"top"><![endif=
+]--><table class=3D"tm_s_youtube" style=3D"display:inline-block;" align=3D"=
+left" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr class=3D"=
+tr7"> <td align=3D"center"><table width=3D"100%" style=3D";"> <tbody><tr cl=
+ass=3D"tr8"><td align=3D"center" width=3D"33" style=3D"vertical-align:middl=
+e;text-align:center;"><a style=3D"text-decoration: none;" href=3D"https://t=
+haivietjet.mail.txm33.net/cb/c/3146/8321/p005ebp/9e5e748/F/F/F/F" target=3D=
+"_blank"><img alt=3D"icon" class=3D"social_icon youtube" width=3D"28" heigh=
+t=3D"28" style=3D"display:inline-block;width:28px; vertical-align:middle;" =
+src=3D"https://thaivietjet.mail.txm33.net/asset/core/s-color-youtube-96.png=
+"></a></td></tr></tbody></table></td> </tr></tbody></table><!--[if mso]></t=
+d><![endif]--></td></tr></tbody></table><!--[if mso]></tr></table><![endif]=
+--></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></=
+table></td></tr></tbody></table></td></tr></tbody></table></div></div></div=
+></th></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></ta=
+ble></div></td></tr><tr><td class=3D"obj_contain_row footer" valign=3D"top"=
+ align=3D"center"><table class=3D"tm_table" id=3D"tm_footer" width=3D"100%"=
+ cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr><td valign=3D"=
+top" align=3D"center" id=3D"tm_footer_row"><div class=3D"tm_row" style=3D"p=
+osition:relative;"><table align=3D"center" width=3D"100%" style=3D"width:10=
+0%;" class=3D"" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr=
+><td align=3D"center"><table align=3D"center" width=3D"100%" style=3D"max-w=
+idth:600px;" class=3D"tm_table tm_rs tm_footer" ref=3D"BODY" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0"><tbody><tr><td align=3D"center"><table c=
+lass=3D"tm_table tm_rs" style=3D"position: relative; border-spacing: 0px !i=
+mportant; border-collapse: collapse !important; margin: 0px auto !important=
+; max-width: 600px;" align=3D"center" width=3D"100%" cellspacing=3D"0" cell=
+padding=3D"0" border=3D"0"><tbody><tr class=3D"wrap_col_rps"><th class=3D"c=
+olumn_width col-rps tm-col-rps" id=3D"ctb_6_0" style=3D"width:100%;" width=
+=3D"100%" valign=3D"top" align=3D"center"><div class=3D""><div class=3D""><=
+div class=3D""><table class=3D"tm_table" width=3D"100%" cellspacing=3D"0" c=
+ellpadding=3D"0" border=3D"0"><tbody><tr><td id=3D"elb_13" width=3D"100%" v=
+align=3D"top" align=3D"center" style=3D"padding:0px 0px 0px 0px ;"><table w=
+idth=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"bac=
+kground-color:#ee3124;" class=3D"type_15"><tbody><tr><td><table class=3D"tm=
+_table tm_text" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" style=3D"border-spacing: 0;"><tbody><tr><td ref=3D"Text" class=3D"el=
+ement_object" align=3D"left" style=3D" padding:20px 20px 20px 20px ;"><tabl=
+e class=3D"wrap_txt footer_unsub_detail" style=3D"font-weight: normal; font=
+-family: Arial, sans-serif; font-size: 12px; color: rgb(136, 136, 136);" wi=
+dth=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr><t=
+d align=3D"center"><div class=3D"fr-view" style=3D"display: block;"><span s=
+tyle=3D"color: rgb(255, 255, 255);">This message was delivered to</span> <a=
+ href=3D"mailto:andre.jansam@gmail.com">andre.jansam@gmail.com</a><span sty=
+le=3D"color: rgb(255, 255, 255);">.</span><br><span style=3D"color: rgb(255=
+, 255, 255);">If you prefer not to receive these messages in the future, pl=
+ease&nbsp;</span><a href=3D"https://thaivietjet.mail.txm33.net/g/u/3146/832=
+1/p005ebp/F/F/F/F/F">click here to unsubscribe</a><br><br><span style=3D"co=
+lor: rgb(255, 255, 255);">=C2=A9 2025 All Right Reserved =E2=80=A2</span> <=
+a href=3D"https://thaivietjet.mail.txm33.net/cb/c/3146/8321/p005ebp/41c7bcc=
+/F/F/F/F">Terms</a> <span style=3D"color: rgb(255, 255, 255);">and</span> <=
+a href=3D"https://thaivietjet.mail.txm33.net/cb/c/3146/8321/p005ebp/41c7bcc=
+/F/F/F/F">Privacy</a><br><span style=3D"color: rgb(255, 255, 255);">999 Moo=
+ 1 Concourse A and G, Suvarnabhumi Airport, Samutprakarn, Samutprakarn 1028=
+0</span></div></td></tr></tbody></table></td></tr></tbody></table></td></tr=
+></tbody></table></td></tr></tbody></table></div></div></div></th></tr></tb=
+ody></table></td></tr></tbody></table></td></tr></tbody></table></div></td>=
+</tr></tbody></table></td></tr></tbody></table><!--[if mso]></td></tr></tab=
+le><![endif]--></td></tr></tbody></table><img src=3D"https://thaivietjet.ma=
+il.txm33.net/r/3146/8321/p005ebp/F/F/F/F/F.gif" width=3D"1" height=3D"1"></=
+body></html>
+
+
+--PD02yrAciLLmBmMyPbl2yxlLgT9SOzWvMTfykqXAMYOOKKUAAKPUm5oYpEUe--
